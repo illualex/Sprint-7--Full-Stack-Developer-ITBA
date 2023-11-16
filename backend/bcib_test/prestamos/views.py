@@ -3,9 +3,15 @@ from .models import SolicitudPrestamo
 from .forms import SolicitudPrestamoForm
 
 
+
+# def mi_vista_personalizada(request):
+#     # Lógica de la vista
+#     return render(request, 'prestamos/tu_template.html')  # Ruta correcta a la plantilla
+
+
 def solicitud_exitosa(request, aprobado):
     mensaje = "Su solicitud ha sido aprobada." if aprobado else "Su solicitud ha sido rechazada."
-    return render(request, 'solicitud_exitosa.html', {'mensaje': mensaje})
+    return render(request, 'prestamos/solicitud_exitosa.html', {'mensaje': mensaje})
 
 def solicitud_prestamo(request):
     if request.method == 'POST':
@@ -18,7 +24,7 @@ def solicitud_prestamo(request):
             solicitud.save()
             
             aprobado = True  # Determina si la solicitud fue aprobada o rechazada (puede ser un booleano)
-            return redirect('solicitud_exitosa', aprobado=aprobado)
+            return redirect('prestamos/solicitud_exitosa.html', aprobado=aprobado)
     #OPERACIONES PARA QUE SE VEA REFLEJADO EN EL ESTADO DE CUENTA
         # Una vez solicitada la solicitud de préstamo, se debe registrar
         # en la base dedatos. La solicitud debe impactar en el préstamo y 
@@ -27,5 +33,5 @@ def solicitud_prestamo(request):
         
     else:
         form = SolicitudPrestamoForm()
-    return render(request, 'solicitud_prestamo.html', {'form': form})
+    return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
 
