@@ -1,0 +1,48 @@
+----- WINDOWS -----
+* Descargar extension PowerShell para Visual Studio
+
+1) crear entorno virtual:
+    python -m venv [nombre-archivo]
+
+2) activar entorno virtual desde terminal:
+    [nombre-archivo]\Scripts\activate
+    
+    django-venv\Scripts\activate
+
+3) descargar django:
+    pip install django
+
+Saber las librerías instaladas en tu entorno virtual:
+    pip freeze
+
+Crear requerimientos en txt:
+    pip freeze > requirements.txt
+
+Descargar requerimientos para el entorno virtual (repo clonado):
+    pip install -r requirements.txt
+
+----- DJANGO -----
+1) Crear proyecto:
+    django-admin startproject [nombre_del_proyecto]
+
+    django-admin startproject bcib_test
+
+2) Entrar al directorio:
+    cd [nombre_del_proyecto]
+
+    cd bcib_test
+
+Migraciones iniciales (definir modelos):
+    python manage.py migrate
+
+Ejecutar Server:
+    python manage.py runserver
+
+    http://127.0.0.1:8000/
+
+Apagar Server:
+    teclas: ctrl+c
+
+Panel url admin:
+    http://127.0.0.1:8000/admin/login/?next=/admin/
+    
