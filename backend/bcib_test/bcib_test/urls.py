@@ -21,7 +21,6 @@ from prestamos import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('prestamos/', include('prestamos.urls')),  
-    path('prestamos/', views.solicitud_prestamo, name='vista_prestamos'),
-
+    path('prestamos/', views.crear_solicitud_prestamo, name='vista_prestamos'),
     # Otras rutas del proyecto
 ]
