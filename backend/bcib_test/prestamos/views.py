@@ -1,6 +1,39 @@
-from django.shortcuts import render, redirect
-from .models import SolicitudPrestamo
 from .forms import SolicitudPrestamoForm
+from .models import SolicitudPrestamo
+from .serializers import SolicitudPrestamoSerializer
+from django.shortcuts import render, redirect
+from .forms import SolicitudPrestamoForm
+from django.http import JsonResponse
+from .models import Cliente, SolicitudPrestamo
+from .forms import SolicitudPrestamoForm
+
+def cliente_detail(request, cliente_id):
+    cliente = Cliente.objects.get(pk=cliente_id)
+    # Asegúrate de tener un método apropiado para serializar el cliente a JSON si es necesario
+    cliente_data = {'id': cliente.id, 'nombre': cliente.nombre, 'tipo_cliente': cliente.tipo_cliente}
+    return JsonResponse(cliente_data)
+
+def crear_solicitud_prestamo(request):
+    if request.method == 'POST':
+        form = SolicitudPrestamoForm(request.POST)
+        if form.is_valid():
+            solicitud = form.save(commit=False)
+            solicitud.cliente = request.user.cliente 
+            solicitud.monto_solicitado = solicitud.tipo_prestamo.monto_maximo  
+            solicitud.save()
+
+            aprobado = True  # Determina si la solicitud fue aprobada o rechazada (puede ser un booleano)
+            return render(request, 'prestamos/solicitud_exitosa.html', {'mensaje': 'Su solicitud ha sido aprobada.'})  # o rechazada según aprobado
+
+    else:
+        form = SolicitudPrestamoForm()
+    return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
+
+def lista_solicitudes_prestamo_cliente(request, cliente_id):
+    solicitudes = SolicitudPrestamo.objects.filter(cliente__id=cliente_id)
+    # Asegúrate de tener un método apropiado para serializar las solicitudes a JSON si es necesario
+    solicitudes_data = [{'id': solicitud.id, 'monto_solicitado': solicitud.monto_solicitado} for solicitud in solicitudes]
+    return JsonResponse({'solicitudes': solicitudes_data})
 
 
 
@@ -34,4 +67,3 @@ def solicitud_prestamo(request):
     else:
         form = SolicitudPrestamoForm()
     return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
-
