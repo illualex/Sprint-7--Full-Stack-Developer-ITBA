@@ -4,13 +4,35 @@
 1) crear entorno virtual:
     python -m venv [nombre-archivo]
 
+    virtualenv venv
+
 2) activar entorno virtual desde terminal:
     [nombre-archivo]\Scripts\activate
     
     django-venv\Scripts\activate
 
+    venv\Scripts\activate
+
 3) descargar django:
     pip install django
+
+----- DJANGO -----
+1) Crear proyecto:
+    django-admin startproject [nombre_del_proyecto]
+
+    django-admin startproject bcib_test
+
+    django-admin startproject nombre_proyecto
+
+2) Entrar al directorio:
+    cd [nombre_del_proyecto]
+
+    cd bcib_test
+
+--- Como Usarlo ---
+    cd bcib-sprint7     (Entrar a la carpeta)
+    venv\Scripts\activate       (Prender entorno virtual)
+    cd bcib_itba        (Entrar carpeta del proyecto)
 
 Saber las librerías instaladas en tu entorno virtual:
     pip freeze
@@ -21,18 +43,20 @@ Crear requerimientos en txt:
 Descargar requerimientos para el entorno virtual (repo clonado):
     pip install -r requirements.txt
 
------ DJANGO -----
-1) Crear proyecto:
-    django-admin startproject [nombre_del_proyecto]
+Usar comando inspectdb:
+    python manage.py inspectdb [nombretabla] > [nombrecarpeta]/models.py
 
-    django-admin startproject bcib_test
+Crear un superusuario: (proporcionar un nombre de usuario, correo electrónico y contraseña)
+    python manage.py createsuperuser
 
-2) Entrar al directorio:
-    cd [nombre_del_proyecto]
+    username: admin
+    email:
+    password: admin1234
 
-    cd bcib_test
+Verificar cambios:
+    python manage.py makemigrations
 
-Migraciones iniciales (definir modelos):
+Migración de los cambios:
     python manage.py migrate
 
 Ejecutar Server:
@@ -45,4 +69,3 @@ Apagar Server:
 
 Panel url admin:
     http://127.0.0.1:8000/admin/login/?next=/admin/
-    
