@@ -4,11 +4,11 @@
 1) crear entorno virtual:
     python -m venv [nombre-archivo]
 
-    virtualenv venv
+    Otra forma:
+        virtualenv venv
 
 2) activar entorno virtual desde terminal:
     [nombre-archivo]\Scripts\activate
-    
     django-venv\Scripts\activate
 
     venv\Scripts\activate
@@ -33,6 +33,13 @@
     cd bcib-sprint7     (Entrar a la carpeta)
     venv\Scripts\activate       (Prender entorno virtual)
     cd bcib_itba        (Entrar carpeta del proyecto)
+
+--- Repositorio Clonado ---
+    cd bcib-sprint7     (Entrar a la carpeta)
+    virtualenv venv     (Descargar el entorno virtual)
+    venv\Scripts\activate       (Prender entorno virtual)
+    pip install -r requirements.txt     (Descarga las dependencias faltantes)
+
 
 Saber las librerías instaladas en tu entorno virtual:
     pip freeze
