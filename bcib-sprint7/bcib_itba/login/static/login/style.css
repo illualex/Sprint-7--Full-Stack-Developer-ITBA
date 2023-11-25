@@ -5,6 +5,18 @@ header {
     text-align: center;
 }
 
+.iniciar{
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+    border-radius: 11px;
+    background-color: #bbbbbb;
+}
+
+.iniciar:hover{
+    background-color: #aaaaaaaa;
+}
+
 nav {
     display: flex;
     justify-content: space-around;
