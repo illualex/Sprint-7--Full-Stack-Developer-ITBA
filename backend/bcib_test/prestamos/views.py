@@ -6,6 +6,11 @@ from .forms import SolicitudPrestamoForm
 from django.http import JsonResponse
 from .models import Cliente, SolicitudPrestamo
 from .forms import SolicitudPrestamoForm
+# En el archivo views.py de la aplicación de préstamos
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .models import SolicitudPrestamo
+from .forms import LoanRequestForm
 
 def cliente_detail(request, cliente_id):
     cliente = Cliente.objects.get(pk=cliente_id)
@@ -28,6 +33,31 @@ def crear_solicitud_prestamo(request):
     else:
         form = SolicitudPrestamoForm()
     return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
+
+
+
+# @login_required
+# def loan_request_form(request):
+#     if request.method == 'POST':
+#         form = LoanRequestForm(request.POST)
+#         if form.is_valid():
+#             loan_req = form.save(commit=False)
+#             loan_req.user = request.user  # Asignar el usuario autenticado
+#             if loan_req.loan_type == 'BLACK' and loan_req.amount_requested > 500000:
+#                 loan_req.approved = False
+#             elif loan_req.loan_type == 'GOLD' and loan_req.amount_requested > 300000:
+#                 loan_req.approved = False
+#             elif loan_req.loan_type == 'CLASSIC' and loan_req.amount_requested > 100000:
+#                 loan_req.approved = False
+#             else:
+#                 loan_req.approved = True  # La solicitud es aprobada
+
+#             loan_req.save()  # Guardar la solicitud
+#             return render(request, 'loan_confirmation.html', {'approved': loan_req.approved})
+#     else:
+#         form = LoanRequestForm()
+    
+    # return render(request, 'loan_request_form.html', {'form': form})
 
 def lista_solicitudes_prestamo_cliente(request, cliente_id):
     solicitudes = SolicitudPrestamo.objects.filter(cliente__id=cliente_id)
