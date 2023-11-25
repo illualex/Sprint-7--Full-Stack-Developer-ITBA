@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'prestamos/style.css' %}">
+    <title>Área de Préstamos</title>
+</head>
+<body>
+    <div class='grid place-items-center'>
+        <h1 class='mt-5 mb-10 text-3xl text-center'>Bienvenido al área de préstamos</h1>
+        <div class='w-1 bg-neutral-400 rounded-xl'>
+            <section class="input-item grid place-content-center mb-2">
+                <div class='grid place-content-center'>
+                    <label for="amount" class="text-lg mt-5">Ingrese su monto</label>
+                    <input
+                        type="number"
+                        class="mb-5"
+                        placeholder="Ingrese el Monto"
+                        value=""
+                    />
+                </div>
+                <div class='grid place-content-center'>
+                    <label for="month" class="text-lg">Cantidad de meses</label>
+                    <input
+                        type="number"
+                        class="mb-1"
+                        placeholder="Ingrese los Meses"
+                        value=""
+                    />
+                </div>
+                <button class="calcular" onclick="handleCalcularClick()">Calcular</button>
+            </section>
+            <hr />
+            <section class="grid place-content-center mb-2">
+                <div class="text-xl mt-5 text-center">
+                    <p class="amount-result">Monto a devolver: $0.00</p>
+                    <p class="month-tax">Cuota mensual: $0.00</p>
+                    <p class="tax">Intereses: $0.00</p>
+                    <button class="calcular" id='verificacion' onclick="handleVerificacionClick()">Realizar operación</button>
+                </div>
+            </section>
+            <hr />
+            <section class="valueTaxes">
+                <table class="taxTable">
+                    <tbody>
+                        <tr>
+                            <td>Meses</td>
+                            <td>Intereses</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>1-3</td>
+                            <td>2.5%</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>4-5</td>
+                            <td>5%</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>6-9</td>
+                            <td>7.5%</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>10-14</td>
+                            <td>7.5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+
+
+    <script src="tu-archivo-de-js.js"></script>
+</body>
+</html>
