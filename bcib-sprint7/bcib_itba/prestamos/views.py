@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from .forms import SolicitudPrestamoForm
-from .models import SolicitudPrestamo
-from .serializers import SolicitudPrestamoSerializer
-from django.shortcuts import render, redirect
-from .forms import SolicitudPrestamoForm
-from django.http import JsonResponse
-from .models import Cliente, SolicitudPrestamo
-from .forms import SolicitudPrestamoForm
-# En el archivo views.py de la aplicación de préstamos
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from .models import SolicitudPrestamo
-from .forms import LoanRequestForm
+# from .forms import SolicitudPrestamoForm
+# # from .models import SolicitudPrestamo
+# from .serializers import SolicitudPrestamoSerializer
+# from django.shortcuts import render, redirect
+# from .forms import SolicitudPrestamoForm
+# from django.http import JsonResponse
+# # from .models import Cliente, SolicitudPrestamo
+# from .forms import SolicitudPrestamoForm
+# # En el archivo views.py de la aplicación de préstamos
+# from django.shortcuts import render
+# from django.contrib.auth.decorators import login_required
+# # from .models import SolicitudPrestamo
+# from .forms import LoanRequestForm
 
 def cliente_detail(request, cliente_id):
     cliente = Cliente.objects.get(pk=cliente_id)
@@ -99,3 +99,6 @@ def solicitud_prestamo(request):
         form = SolicitudPrestamoForm()
     return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
 
+
+def prestamos_view(request):
+    return render(request, 'prestamos/prestamos.html')

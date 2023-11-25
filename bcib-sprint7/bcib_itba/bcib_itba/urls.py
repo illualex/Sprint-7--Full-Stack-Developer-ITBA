@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from prestamos import views
+from prestamos.views import prestamos_view
+from home.views import home_view
+from login.views import login_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prestamos/', include('prestamos.urls')),  
-    path('prestamos/', views.crear_solicitud_prestamo, name='vista_prestamos'),
-    
+    path('prestamos/', prestamos_view ),  
+    path("", home_view),
+    path("login/", login_view),
 ]
