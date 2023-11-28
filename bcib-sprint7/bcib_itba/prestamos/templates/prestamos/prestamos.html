@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'prestamos/style.css' %}">
+    <script src="{% static 'prestamos/script.js' %}"></script>
     <title>Área de Préstamos</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
                     <label for="amount" class="text-lg mt-5">Ingrese su monto</label>
                     <input
                         type="number"
-                        class="mb-5"
+                        class="mb-5 amount"
                         placeholder="Ingrese el Monto"
                         value=""
                     />
@@ -27,23 +28,23 @@
                     <label for="month" class="text-lg">Cantidad de meses</label>
                     <input
                         type="number"
-                        class="mb-1"
+                        class="mb-1 month"
                         placeholder="Ingrese los Meses"
                         value=""
                     />
                 </div>
-                <button class="calcular" onclick="handleCalcularClick()">Calcular</button>
+                <button class="calcular" onClick="calcu()">Calcular</button>
             </section>
-            <hr />
+            
             <section class="grid place-content-center mb-2">
                 <div class="text-xl mt-5 text-center">
                     <p class="amount-result">Monto a devolver: $0.00</p>
                     <p class="month-tax">Cuota mensual: $0.00</p>
                     <p class="tax">Intereses: $0.00</p>
-                    <button class="calcular" id='verificacion' onclick="handleVerificacionClick()">Realizar operación</button>
+                    <button id='verificacion' onClick="verifi()">Realizar operación</button>
                 </div>
             </section>
-            <hr />
+           
             <section class="valueTaxes">
                 <table class="taxTable">
                     <tbody>
@@ -82,6 +83,5 @@
     </div>
 
 
-    <script src="tu-archivo-de-js.js"></script>
 </body>
 </html>
