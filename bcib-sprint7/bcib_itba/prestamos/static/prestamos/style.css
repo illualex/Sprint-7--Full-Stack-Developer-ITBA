@@ -1,0 +1,155 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    margin-left: 48%;
+}
+
+/* Estilos del contenedor principal */
+.grid {
+    display: grid;
+}
+
+
+.place-items-center {
+    place-items: center;
+}
+
+
+/* Estilos del título principal */
+.mt-5 {
+    margin-top: 1.25rem;
+}
+
+
+.mb-10 {
+    margin-bottom: 2.5rem;
+}
+
+
+.text-3xl {
+    font-size: 1.875rem;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+
+/* Estilos del contenedor principal */
+.w-1 {
+    width: 50%;
+}
+
+
+.bg-neutral-400 {
+    background-color: #CCCCCC;
+}
+
+
+.rounded-xl {  
+    border-radius: 0.75rem;
+}
+
+
+/* Estilos de la sección de entrada de datos */
+.input-item {
+    display: grid;
+    place-content: center;
+}
+
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+
+.mb-5 {
+    margin-bottom: 1.25rem;
+}
+
+
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
+
+
+/* Estilos del botón 'Calcular' */
+.calcular {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+
+.calcular:hover {
+    background-color: #45a049;
+}
+
+
+/* Estilos de las secciones de resultados y tasas */
+.text-xl {
+    font-size: 1.25rem;
+}
+
+
+.amount-result,
+.month-tax,
+.tax {
+    margin: 0.625rem 0;
+}
+
+
+#verificacion {
+    /* Estilos del botón 'Realizar operación' */
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+
+#verificacion:hover {
+    background-color: #0b7dda;
+}
+
+
+
+/* Estilos de la tabla de tasas */
+.taxTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.taxTable td, .taxTable th {
+    border: 1px solid #ddd;
+    padding: 0.625rem;
+    text-align: left;
+}
+
+
+.taxTable th {
+    background-color: #4CAF50;
+    color: white;
+}

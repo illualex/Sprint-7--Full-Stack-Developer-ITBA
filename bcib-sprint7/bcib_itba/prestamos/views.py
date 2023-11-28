@@ -1,16 +1,16 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 # from .forms import SolicitudPrestamoForm
-# from .models import SolicitudPrestamo
+# # from .models import SolicitudPrestamo
 # from .serializers import SolicitudPrestamoSerializer
 # from django.shortcuts import render, redirect
 # from .forms import SolicitudPrestamoForm
 # from django.http import JsonResponse
-# from .models import Cliente, SolicitudPrestamo
+# # from .models import Cliente, SolicitudPrestamo
 # from .forms import SolicitudPrestamoForm
 # # En el archivo views.py de la aplicación de préstamos
 # from django.shortcuts import render
 # from django.contrib.auth.decorators import login_required
-# from .models import SolicitudPrestamo
+# # from .models import SolicitudPrestamo
 # from .forms import LoanRequestForm
 
 # def cliente_detail(request, cliente_id):
@@ -114,5 +114,8 @@ def solicitar_prestamo(request):
             return render(request, 'solicitud_aprobada.html', {'solicitud': solicitud})
     else:
         form = SolicitudPrestamoForm()
-    
-    return render(request, 'solicitud_prestamo.html', {'form': form})
+    return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
+
+
+def prestamos_view(request):
+    return render(request, 'prestamos/prestamos.html')
