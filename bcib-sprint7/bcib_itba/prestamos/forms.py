@@ -1,5 +1,5 @@
-from django import forms
-from .models import SolicitudPrestamo,TipoPrestamo
+from django import forms;
+from .models import SolicitudPrestamo
 
 class SolicitudPrestamoForm(forms.ModelForm):
     class Meta:
@@ -8,7 +8,7 @@ class SolicitudPrestamoForm(forms.ModelForm):
         
     def clean(self):
         cleaned_data = super().clean()
-        tipo_prestamo = cleaned_data.get('tipo_prestamo')
+        # tipo_prestamo = cleaned_data.get('tipo_prestamo')
         cliente = cleaned_data.get('cliente')
         monto_solicitado = forms.DecimalField(label='Monto del Préstamo')
         tipo_prestamo = forms.ModelChoiceField(queryset=TipoPrestamo.objects.all(), label='Tipo de Préstamo')
@@ -27,3 +27,4 @@ class SolicitudPrestamoForm(forms.ModelForm):
             if tipo_prestamo.monto_maximo < monto_solicitado:
                 raise forms.ValidationError("El monto solicitado supera el límite para este tipo de préstamo")
         return cleaned_data
+    

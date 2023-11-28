@@ -10,7 +10,7 @@ from .forms import SolicitudPrestamoForm
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import SolicitudPrestamo
-from .forms import LoanRequestForm
+from .forms import SolicitudPrestamoForm
 
 def cliente_detail(request, cliente_id):
     cliente = Cliente.objects.get(pk=cliente_id)
