@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'prestamos/style.css' %}">
     <script src="{% static 'prestamos/script.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'prestamos/style.css' %}">
     <title>Área de Préstamos</title>
 </head>
 <body>
+    
+        <nav id="nav">
+            <div class="navbar-left">
+                <a href="/perfil" class="navbar-link">perfil</a>
+                <a href="/prestamos" class="navbar-link">prestamos</a>
+                <a href="/tarjetas" class="navbar-link">tarjetas</a>
+                <a href="/personal_data" class="navbar-link">datos personales</a>
+            </div>
+            <div class="navbar-title">BCIB</div>
+            <div class="navbar-right">
+                <a href="/" class="navbar-link">logOut</a>
+            </div>
+        </nav>
+    
     <div class='grid place-items-center'>
         <h1 class='mt-5 mb-10 text-3xl text-center'>Bienvenido al área de préstamos</h1>
         <div class='w-1 bg-neutral-400 rounded-xl'>
             
             <section class="input-item grid place-content-center mb-2">
-                <a class="logOut" href="/">salir</a>
                 <div class='grid place-content-center'>
                     <label for="amount" class="text-lg mt-5">Ingrese su monto</label>
                     <input

@@ -58,6 +58,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'prestamos/static'),
     os.path.join(BASE_DIR, 'home/static'),
     os.path.join(BASE_DIR, 'login/static'),
+    os.path.join(BASE_DIR, 'perfil/static'),
+    os.path.join(BASE_DIR, 'tarjetas/static'),
+    os.path.join(BASE_DIR, 'personal_data/static'),
+    os.path.join(BASE_DIR, 'register/static'),
 ]
 
 TEMPLATES = [
@@ -65,7 +69,11 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [  os.path.join(BASE_DIR, 'prestamos/templates'),
                    os.path.join(BASE_DIR, 'home/templates'),
-                   os.path.join(BASE_DIR, 'login/templates')],
+                   os.path.join(BASE_DIR, 'login/templates'),
+                   os.path.join(BASE_DIR, 'perfil/templates'),
+                   os.path.join(BASE_DIR, 'tarjetas/templates'),
+                   os.path.join(BASE_DIR, 'register/templates'),
+                   os.path.join(BASE_DIR, 'personal_data/templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

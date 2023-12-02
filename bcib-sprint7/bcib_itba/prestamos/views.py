@@ -100,8 +100,11 @@ from django.shortcuts import render
 #     return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
 
 from django.shortcuts import render
-from .forms import SolicitudPrestamoForm
-from .models import SolicitudPrestamo
+# from .forms import SolicitudPrestamoForm
+# from .models import SolicitudPrestamo
+
+def prestamos_view(request):
+    return render(request, 'prestamos/prestamos.html')
 
 def solicitar_prestamo(request):
     if request.method == 'POST':
@@ -117,5 +120,3 @@ def solicitar_prestamo(request):
     return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
 
 
-def prestamos_view(request):
-    return render(request, 'prestamos/prestamos.html')

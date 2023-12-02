@@ -1,15 +1,71 @@
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
+    font-family: var(--text);
     padding: 0;
 }
 
-a{
+:root {
+    --negro: #00100B;
+    --rojo: #C42021;
+    --gris: #7C8483;
+    --blanco: #F0F3F5;
+
+    --title: 'Oswald', sans-serif;
+    --text: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+
+
+#nav {
+    background-color: var(--negro);
+    color: var(--rojo);
     padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-title {
+    font-family: var(--title);
+    font-size: 24px;
+}
+
+.navbar-link {
+    color: var(--blanco);
     text-decoration: none;
-    color: black;
-    text-align: center;
-    margin-left: 48%;
+    font-size: 18px;
+    margin: 6px;
+}
+
+.navbar-button {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Media Query para hacer responsive el navbar */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-left,
+    .navbar-right {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 /* Estilos del contenedor principal */
@@ -153,3 +209,4 @@ a{
     background-color: #4CAF50;
     color: white;
 }
+
