@@ -9,7 +9,7 @@ import django
 # # # # # # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bcib-sprint7.bcib_itba.bcib_itba.settings')
 
 
-print(os.environ.get('DJANGO_SETTINGS_MODULE'))
+# print(os.environ.get('DJANGO_SETTINGS_MODULE'))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Configura Django

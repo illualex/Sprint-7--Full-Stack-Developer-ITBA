@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'prestamos',
+    'cliente',
+    
 ]
 
 MIDDLEWARE = [
@@ -55,6 +58,7 @@ ROOT_URLCONF = 'bcib_itba.urls'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
+    # os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'prestamos/static'),
     os.path.join(BASE_DIR, 'home/static'),
     os.path.join(BASE_DIR, 'login/static'),

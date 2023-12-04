@@ -1,30 +1,27 @@
-from django import forms;
-from .models import SolicitudPrestamo
+from django import forms
+from .models import SolicitudPrestamo, TipoPrestamo, Cliente
 
 class SolicitudPrestamoForm(forms.ModelForm):
     class Meta:
         model = SolicitudPrestamo
-        fields = ['monto_solicitado','tipo_prestamo', 'fecha_inicio']
-        
+        fields = ['monto_solicitado', 'tipo_prestamo', 'fecha_inicio']
+
     def clean(self):
         cleaned_data = super().clean()
-        # tipo_prestamo = cleaned_data.get('tipo_prestamo')
-        cliente = cleaned_data.get('cliente')
-        monto_solicitado = forms.DecimalField(label='Monto del Préstamo')
-        tipo_prestamo = forms.ModelChoiceField(queryset=TipoPrestamo.objects.all(), label='Tipo de Préstamo')
-        fecha_inicio = forms.DateField(label='Fecha de Inicio del Préstamo')
-    
+        cliente = Cliente.objects.get(user=self.instance.cliente.user)
+        monto_solicitado = cleaned_data.get('monto_solicitado')
+        tipo_prestamo = cleaned_data.get('tipo_prestamo')
 
-        if cliente.tipoCliente =='BLACK':
-            tipo_prestamo.monto_maximo=500000
-        elif cliente.tipoCliente =='GOLD':
-            tipo_prestamo.monto_maximo=300000
+        # Establecer los límites de préstamo según el tipo de cliente
+        if cliente.tipo_cliente == 'BLACK':
+            max_monto = 500000
+        elif cliente.tipo_cliente == 'GOLD':
+            max_monto = 300000
         else:
-            tipo_prestamo.monto_maximo=100000
+            max_monto = 100000
 
-        # Ejemplo de validación de monto máximo
-        if tipo_prestamo and cliente:
-            if tipo_prestamo.monto_maximo < monto_solicitado:
-                raise forms.ValidationError("El monto solicitado supera el límite para este tipo de préstamo")
+        # Validar si el monto solicitado supera el límite para este tipo de préstamo
+        if monto_solicitado > max_monto:
+            raise forms.ValidationError("El monto solicitado supera el límite para este tipo de cliente")
+
         return cleaned_data
-    

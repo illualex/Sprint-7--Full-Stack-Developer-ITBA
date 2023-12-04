@@ -26,38 +26,6 @@
     <div class='grid place-items-center'>
         <h1 class='mt-5 mb-10 text-3xl text-center'>Bienvenido al área de préstamos</h1>
         <div class='w-1 bg-neutral-400 rounded-xl'>
-            
-            <section class="input-item grid place-content-center mb-2">
-                <div class='grid place-content-center'>
-                    <label for="amount" class="text-lg mt-5">Ingrese su monto</label>
-                    <input
-                        type="number"
-                        class="mb-5 amount"
-                        placeholder="Ingrese el Monto"
-                        value=""
-                    />
-                </div>
-                <div class='grid place-content-center'>
-                    <label for="month" class="text-lg">Cantidad de meses</label>
-                    <input
-                        type="number"
-                        class="mb-1 month"
-                        placeholder="Ingrese los Meses"
-                        value=""
-                    />
-                </div>
-                <button class="calcular" onClick="calcu()">Calcular</button>
-            </section>
-            
-            <section class="grid place-content-center mb-2">
-                <div class="text-xl mt-5 text-center">
-                    <p class="amount-result">Monto a devolver: $0.00</p>
-                    <p class="month-tax">Cuota mensual: $0.00</p>
-                    <p class="tax">Intereses: $0.00</p>
-                    <button id='verificacion' onClick="verifi()">Realizar operación</button>
-                </div>
-            </section>
-           
             <section class="valueTaxes">
                 <table class="taxTable">
                     <tbody>
@@ -92,6 +60,41 @@
                     </tbody>
                 </table>
             </section>
+
+            <section class="input-item grid place-content-center mb-2">
+
+                <div class='grid place-content-center'>
+                    <h4></h4>
+                    <label for="amount" class="text-lg mt-5">Ingrese el monto que querría recibir como prestamo</label>
+                    <input
+                        type="number"
+                        class="mb-5 amount"
+                        placeholder="Ingrese el Monto"
+                        value=""
+                    />
+                </div>
+                <div class='grid place-content-center'>
+                    <label for="month" class="text-lg">Cantidad de meses</label>
+                    <input
+                        type="number"
+                        class="mb-1 month"
+                        placeholder="Ingrese los Meses"
+                        value=""
+                    />
+                </div>
+                <button class="calcular" onClick="calcu()">Calcular</button>
+            </section>
+            
+            <section class="grid place-content-center mb-2">
+                <div class="text-xl mt-5 text-center">
+                    <p class="amount-result">Monto a devolver: $0.00</p>
+                    <p class="month-tax">Cuota mensual: $0.00</p>
+                    <p class="tax">Intereses: $0.00</p>
+                    <button id='verificacion' onClick="verifi()">Realizar operación</button>
+                </div>
+            </section>
+           
+           
         </div>
     </div>
 
