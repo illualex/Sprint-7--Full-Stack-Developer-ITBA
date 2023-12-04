@@ -60,6 +60,16 @@ Crear un superusuario: (proporcionar un nombre de usuario, correo electrónico y
     email:
     password: admin1234
 
+DESCARGAR DEPENDENCIAS DE FRONTEND:
+    npm install
+
+EN CASO DE QUE EN ADMIN NO EXISTAN LOS USUARIOS:
+Te paras en la carpeta bcib-sprint7\bcib_itba
+
+    python crearusuarios.py shell
+este comando puede tardar hasta 10 minutos en crearlos todos, dale tiempo
+
+
 Verificar cambios:
     python manage.py makemigrations
 

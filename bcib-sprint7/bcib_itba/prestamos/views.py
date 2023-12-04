@@ -15,16 +15,19 @@
 
 #     return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
 
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .forms import SolicitudPrestamoForm
 from .models import SolicitudPrestamo, Prestamo, Cliente
 
+
+
 def prestamos_view(request):
+    cliente = get_object_or_404(Cliente, user=request.user)
     if request.method == 'POST':
         form = SolicitudPrestamoForm(request.POST)
         if form.is_valid():
             solicitud = form.save(commit=False)
-            solicitud.cliente = Cliente.objects.get(user=request.user)
+            solicitud.cliente = cliente
             solicitud.aprobado = True  # Aquí debes realizar la lógica de aprobación o rechazo
             solicitud.save()
 

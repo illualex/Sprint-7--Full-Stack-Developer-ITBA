@@ -1,10 +1,23 @@
 from django import forms
 from .models import SolicitudPrestamo, TipoPrestamo, Cliente
+from django.utils import timezone
 
 class SolicitudPrestamoForm(forms.ModelForm):
+    fecha_inicio = forms.DateField(
+    label='Fecha de Inicio del Préstamo',
+    input_formats=['%d/%m/%Y'],
+    widget=forms.DateInput(attrs={'class': 'datepicker'}),
+    help_text='Ingrese una fecha en formato dd/mm/aaaa y asegúrese de que no sea una fecha pasada.'
+    )
     class Meta:
         model = SolicitudPrestamo
         fields = ['monto_solicitado', 'tipo_prestamo', 'fecha_inicio']
+    
+    def clean_fecha_inicio(self):
+        fecha_inicio = self.cleaned_data.get('fecha_inicio')
+        if fecha_inicio < timezone.now().date():
+            raise forms.ValidationError('La fecha no puede ser en el pasado.')
+        return fecha_inicio
 
     def clean(self):
         cleaned_data = super().clean()
