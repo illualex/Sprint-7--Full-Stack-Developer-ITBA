@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'perfil/styles.css' %}">
+    <title>Perfil Bancario</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar-left">
+                <a href="/perfil" class="navbar-link">perfil</a>
+                <a href="/prestamos" class="navbar-link">prestamos</a>
+                <a href="/tarjetas" class="navbar-link">tarjetas</a>
+                <a href="/personal_data" class="navbar-link">datos personales</a>
+            </div>
+            <div class="navbar-title">BCIB</div>
+            <div class="navbar-right">
+                <a href="/" class="navbar-link">logOut</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+    <h1>Perfil Bancario</h1>
+    
+    <section class="profile-section">
+            <h2>Perfil</h2>
+            <p>Nombre: maxi</p>
+            <p>cvu: 123456789</p>
+            <p>alias: maxi.adres.10</p>
+        </section>
+        <section class="balance-section">
+            <h2>Saldo</h2>
+            <p class="balance">$ 5,000.00</p>
+        </section>
+    </main>
+</body>
+</html>

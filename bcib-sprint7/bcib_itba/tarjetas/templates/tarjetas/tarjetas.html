@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'tarjetas/style.css' %}">
+    <title>Perfil Bancario</title>
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <div class="navbar-left">
+                <a href="/perfil" class="navbar-link">perfil</a>
+                <a href="/prestamos" class="navbar-link">prestamos</a>
+                <a href="/tarjetas" class="navbar-link">tarjetas</a>
+                <a href="/personal_data" class="navbar-link">datos personales</a>
+            </div>
+            <div class="navbar-title">BCIB</div>
+            <div class="navbar-right">
+                <a href="/" class="navbar-link">logOut</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cards-section">
+            <h2>Mis Tarjetas</h2>
+            <div class="card">
+                <h3>Tarjeta de Débito</h3>
+                <p>Número de tarjeta: **** **** **** 1234</p>
+                <p>Fecha de expiración: 12/24</p>
+                <p>Codigo de seguridad: 200</p>
+            </div>
+            <div class="card">
+                <h3>Tarjeta de Crédito</h3>
+                <p>Número de tarjeta: **** **** **** 5678</p>
+                <p>Fecha de expiración: 05/23</p>
+                <p>Codigo de seguridad: 202</p>
+            </div>
+        </section>
+        <section class="balance-section">
+            <h2>Saldo</h2>
+            <p class="balance">USD 5,000.00</p>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+p {
+    margin: 0;
+}
+
+.customer-info {
+    margin-bottom: 20px;
+}
+
+:root {
+    --negro: #00100B;
+    --rojo: #C42021;
+    --gris: #7C8483;
+    --blanco: #F0F3F5;
+
+    --title: 'Oswald', sans-serif;
+    --text: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: var(--text);
+}
+
+nav {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-title {
+    font-family: var(--title);
+    font-size: 24px;
+}
+
+.navbar-link {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 18px;
+    margin: 6px;
+}
+
+.navbar-button {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Media Query para hacer responsive el navbar */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-left,
+    .navbar-right {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
