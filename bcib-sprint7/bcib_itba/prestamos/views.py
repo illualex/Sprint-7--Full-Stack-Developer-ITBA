@@ -1,28 +1,38 @@
-# from django.shortcuts import render
-# from .forms import SolicitudPrestamoForm
-
-
-# def prestamos_view(request):
-#     if request.method == 'POST':
-#         form = SolicitudPrestamoForm(request.POST)
-#         if form.is_valid():
-#             # Procesar la solicitud de préstamo
-#             solicitud = form.save(commit=False)
-#             # Realizar lógica de negocios y registro en la base de datos aquí
-#             solicitud.save()
-#     else:
-#         form = SolicitudPrestamoForm()
-
-#     return render(request, 'prestamos/solicitud_prestamo.html', {'form': form})
-
 from django.shortcuts import render,get_object_or_404
 from .forms import SolicitudPrestamoForm
-from .models import SolicitudPrestamo, Prestamo, Cliente
+from cliente.models import  Cliente
+from .models import SolicitudPrestamo, Prestamo
+from django.contrib.auth.decorators import login_required
+from random import randint
+from django.contrib.auth.models import User
 
 
+# def obtener_cliente_por_usuario(usuario):
+#     usuario_id=usuario.id
+    
+#     cliente = get_object_or_404(Cliente, id=usuario_id)
+#     return cliente
 
+@login_required
 def prestamos_view(request):
-    cliente = get_object_or_404(Cliente, user=request.user)
+    print(request.user)
+    print(request)
+    print ('holaa')
+    # # cliente = get_object_or_404(Cliente, user=request.user)
+    # try:
+    #     cliente = Cliente.objects.get(user=request.user)
+    # except Cliente.DoesNotExist:
+    #     # Manejar el caso en el que no se encuentra el cliente
+    #     cliente = None  # O cualquier otro manejo de la situación
+    #     return render(request, '404.html')
+    # cliente= obtener_cliente_por_usuario(request.user)
+    cliente_id_aleatorio = randint(1, 505)
+    try:
+        usuario = User.objects.get(id=cliente_id_aleatorio)
+        cliente = Cliente.objects.get(user=usuario)
+    except Cliente.DoesNotExist:
+        # Manejo de la excepción si el cliente no existe
+        cliente = None
     if request.method == 'POST':
         form = SolicitudPrestamoForm(request.POST)
         if form.is_valid():

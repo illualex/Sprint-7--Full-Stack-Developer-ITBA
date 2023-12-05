@@ -21,7 +21,17 @@ class SolicitudPrestamoForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        cliente = Cliente.objects.get(user=self.instance.cliente.user)
+        cliente = None
+
+        # Verificar si la instancia tiene un cliente asociado
+        if 'cliente' in self.cleaned_data:
+            cliente = self.cleaned_data['cliente']
+        # elif self.instance.cliente:
+        #     cliente = Cliente.objects.get(user=self.instance.cliente.user)
+        else:
+            cliente = Cliente.objects.get(user=2)
+        
+        # Realizar las operaciones que necesites con el objeto cliente aquí
         monto_solicitado = cleaned_data.get('monto_solicitado')
         tipo_prestamo = cleaned_data.get('tipo_prestamo')
 
