@@ -11,9 +11,10 @@ class Cliente(models.Model):
     customer_dni = models.TextField(db_column='customer_DNI')  
     dob = models.TextField(blank=True, null=True)
     branch_id = models.IntegerField()
+    tipo_cliente=models.TextField()
 
     def __str__(self):
-        return f"{self.related_user.username}'s Profile"
+        return f"{self.user}'s Profile"
     class Meta:
         managed = False
         db_table = 'cliente'

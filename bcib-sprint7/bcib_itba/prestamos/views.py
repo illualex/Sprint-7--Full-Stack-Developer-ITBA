@@ -6,13 +6,6 @@ from django.contrib.auth.decorators import login_required
 from random import randint
 from django.contrib.auth.models import User
 
-
-# def obtener_cliente_por_usuario(usuario):
-#     usuario_id=usuario.id
-    
-#     cliente = get_object_or_404(Cliente, id=usuario_id)
-#     return cliente
-
 @login_required
 def prestamos_view(request):
     print(request.user)
@@ -31,12 +24,12 @@ def prestamos_view(request):
         usuario = User.objects.get(id=cliente_id_aleatorio)
         cliente = Cliente.objects.get(user=usuario)
     except Cliente.DoesNotExist:
-        # Manejo de la excepción si el cliente no existe
         cliente = None
     if request.method == 'POST':
-        form = SolicitudPrestamoForm(request.POST)
+        form = SolicitudPrestamoForm(request.POST,initial={'cliente': cliente_id_aleatorio})
         if form.is_valid():
-            solicitud = form.save(commit=False)
+            print('ENTRO AL FORM IS VALID')
+            solicitud = SolicitudPrestamo(form.save(commit=False))
             solicitud.cliente = cliente
             solicitud.aprobado = True  # Aquí debes realizar la lógica de aprobación o rechazo
             solicitud.save()
@@ -49,7 +42,7 @@ def prestamos_view(request):
             else:
                 mensaje = "Solicitud de préstamo rechazada"
 
-            return render(request, 'resultado_solicitud.html', {'mensaje': mensaje})
+            return render(request, 'prestamos/resultado_solicitud.html', {'mensaje': mensaje})
     else:
         form = SolicitudPrestamoForm()
 
