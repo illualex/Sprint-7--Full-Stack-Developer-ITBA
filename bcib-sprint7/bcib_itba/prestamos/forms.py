@@ -92,10 +92,10 @@ class SolicitudPrestamoForm(forms.ModelForm):
         ],
         widget=forms.TextInput(attrs={'pattern': '[0-9]{1,14}', 'title': 'Ingrese solo números'})
     )
-    cliente = forms.IntegerField()
+    # cliente = forms.IntegerField()
     class Meta:
         model = SolicitudPrestamo
-        fields = ['monto_solicitado', 'tipo_prestamo', 'fecha_inicio','cliente']
+        fields = ['monto_solicitado', 'tipo_prestamo', 'fecha_inicio']
     
     def clean_fecha_inicio(self):
         fecha_inicio = self.cleaned_data.get('fecha_inicio')
@@ -109,10 +109,8 @@ class SolicitudPrestamoForm(forms.ModelForm):
 
             if cliente_id:
                 try:
-                    usuario = User.objects.get(id=cliente_id)
-                    cliente = Cliente.objects.get(user=usuario)
-
-                    # Resto del código de validación y lógica con el cliente obtenido
+                     usuario = User.objects.get(id=cliente_id)
+                     cliente = Cliente.objects.get(user=usuario)
 
                 except (Cliente.DoesNotExist, User.DoesNotExist):
                     raise forms.ValidationError("Cliente no encontrado")

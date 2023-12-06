@@ -8,9 +8,6 @@ from django.contrib.auth.models import User
 
 @login_required
 def prestamos_view(request):
-    print(request.user)
-    print(request)
-    print ('holaa')
     # # cliente = get_object_or_404(Cliente, user=request.user)
     # try:
     #     cliente = Cliente.objects.get(user=request.user)
@@ -24,12 +21,15 @@ def prestamos_view(request):
         usuario = User.objects.get(id=cliente_id_aleatorio)
         cliente = Cliente.objects.get(user=usuario)
     except Cliente.DoesNotExist:
-        cliente = None
+        cliente = Cliente.objects.get(user=2)
+        # Leslie
     if request.method == 'POST':
-        form = SolicitudPrestamoForm(request.POST,initial={'cliente': cliente_id_aleatorio})
+        # form = SolicitudPrestamoForm(request.POST,initial={'cliente': cliente_id_aleatorio})
+        form = SolicitudPrestamoForm(request.POST)
+        print('ENTRO POST')
         if form.is_valid():
             print('ENTRO AL FORM IS VALID')
-            solicitud = SolicitudPrestamo(form.save(commit=False))
+            solicitud = form.save(commit=False)
             solicitud.cliente = cliente
             solicitud.aprobado = True  # Aquí debes realizar la lógica de aprobación o rechazo
             solicitud.save()
@@ -37,12 +37,14 @@ def prestamos_view(request):
             # Actualizar el préstamo y el saldo de cuenta aquí
 
             
-            if solicitud.aprobado:
+            if solicitud.aprobado==True:
                 mensaje = "Solicitud de préstamo aprobada"
+                aprobado = True
             else:
                 mensaje = "Solicitud de préstamo rechazada"
+                aprobado = False
 
-            return render(request, 'prestamos/resultado_solicitud.html', {'mensaje': mensaje})
+            return render(request, 'prestamos/resultado_solicitud.html', {'aprobado': aprobado, 'mensaje': mensaje})
     else:
         form = SolicitudPrestamoForm()
 
