@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Cliente',
             fields=[
-                ('customer_id', models.AutoField(primary_key=True, serialize=False)),
+                ('user_id', models.AutoField(primary_key=True, serialize=False)),
                 ('customer_name', models.TextField()),
                 ('customer_surname', models.TextField()),
                 ('customer_dni', models.TextField(db_column='customer_DNI')),
