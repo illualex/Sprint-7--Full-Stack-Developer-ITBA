@@ -6,8 +6,7 @@ urlpatterns = [
     path('solicitar-prestamo/', views.solicitud_prestamo, name='solicitud_prestamo'),
     path('solicitud_exitosa/', views.solicitud_prestamo, name='solicitud_exitosa'),
     path('cliente-detail/<int:cliente_id>/', cliente_detail, name='cliente_detail'),
-    path('crear-solicitud-prestamo/', crear_solicitud_prestamo, name='crear_solicitud_prestamo'),
-    path('lista-solicitudes-prestamo-cliente/<int:cliente_id>/', lista_solicitudes_prestamo_cliente, name='lista_solicitudes_prestamo_cliente'),
+    # path('lista-solicitudes-prestamo-cliente/<int:cliente_id>/', lista_solicitudes_prestamo_cliente, name='lista_solicitudes_prestamo_cliente'),
 ]
 
 

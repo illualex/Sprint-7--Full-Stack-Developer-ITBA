@@ -3,15 +3,6 @@ from django.contrib.auth.models import User
 from cliente.models import Cliente
 
 
-# class Cliente(models.Model):
-#     USUARIO_CHOICES = (
-#         ('BLACK', 'BLACK'),
-#         ('GOLD', 'GOLD'),
-#         ('CLASSIC', 'CLASSIC'),
-#     )
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     tipo_cliente = models.CharField(max_length=20, choices=USUARIO_CHOICES)
-
 class TipoPrestamo(models.Model):
     tipo = models.CharField(max_length=50)
     def __str__(self):

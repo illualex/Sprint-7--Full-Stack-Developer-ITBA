@@ -12,7 +12,15 @@ class Cliente(models.Model):
     dob = models.TextField(blank=True, null=True)
     branch_id = models.IntegerField()
     tipo_cliente=models.TextField()
-
+    
+    def obtener_cuenta(self):
+        try:
+            cuenta = Cuenta.objects.get(customer_id=self.customer_id)
+            return cuenta
+        except Cuenta.DoesNotExist:
+            return None
+        
+        
     def __str__(self):
         return f"{self.user}'s Profile"
     class Meta:

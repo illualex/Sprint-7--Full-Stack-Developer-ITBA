@@ -49,8 +49,8 @@ function verifi(){
     const monto = document.querySelector(".amount").value;
     if(monto == "") return
     else{
-    let confirmar = confirm("Estas seguro de realizar esta operacion");
+    let confirmar = confirm("¿Estas seguro de realizar esta operacion?");
     
-    if(confirmar == true) alert("Operacion ha sido realizada con exito, los fondos seran sumados a tu cuenta en los proximos dias")
+    if(confirmar == true) alert("Operacion realizada con exito, los fondos seran sumados a tu cuenta en los proximos dias")
     else alert("Operacion cancelada")}
 }
