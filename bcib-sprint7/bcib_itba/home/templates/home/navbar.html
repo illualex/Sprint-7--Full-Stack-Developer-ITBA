@@ -7,9 +7,6 @@
     </div>
     <div class="navbar-title">BCIB</div>
     <div class="navbar-right">
-        {% if user.is_authenticated %}
-            Bienvenido, {{ user.cliente.nombre }}
-        {% endif %}
         <a href="/login" class="navbar-link">LogIn</a>
         <a href="/registro" class="navbar-link">Hacete cliente</a>
     </div>

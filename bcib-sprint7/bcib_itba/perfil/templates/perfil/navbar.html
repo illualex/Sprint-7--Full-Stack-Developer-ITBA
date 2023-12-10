@@ -8,7 +8,7 @@
     <div class="navbar-title">BCIB</div>
     <div class="navbar-right">
         {% if user.is_authenticated %}
-            Bienvenido, {{ user.cliente.nombre }}
+            Bienvenido, {{ user.authUser.first_name }}
             <a href="/logout">Cerrar sesión</a>
         {% endif %}
 
