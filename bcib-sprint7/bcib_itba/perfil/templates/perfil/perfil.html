@@ -8,29 +8,18 @@
     <title>Perfil Bancario</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="navbar-left">
-                <a href="/perfil" class="navbar-link">perfil</a>
-                <a href="/prestamos" class="navbar-link">prestamos</a>
-                <a href="/tarjetas" class="navbar-link">tarjetas</a>
-                <a href="/personal_data" class="navbar-link">datos personales</a>
-            </div>
-            <div class="navbar-title">BCIB</div>
-            <div class="navbar-right">
-                <a href="/" class="navbar-link">logOut</a>
-            </div>
-        </nav>
-    </header>
+    
+        {% include "./navbar.html" %}    
+    
     <main>
         
     <h1>Perfil Bancario</h1>
     
     <section class="profile-section">
             <h2>Perfil</h2>
-            <p>Nombre: maxi</p>
-            <p>cvu: 123456789</p>
-            <p>alias: maxi.adres.10</p>
+            <p class="p">Nombre: maxi</p>
+            <p class="p">cvu: 123456789</p>
+            <p class="p">alias: maxi.adres.10</p>
         </section>
         <section class="balance-section">
             <h2>Saldo</h2>

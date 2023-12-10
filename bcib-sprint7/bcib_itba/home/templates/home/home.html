@@ -10,26 +10,19 @@
 </head>
 
 <body>
-    <nav>
-        <div class="navbar-left">
-            <a href="/perfil" class="navbar-link">perfil</a>
-            <a href="/prestamos" class="navbar-link">prestamos</a>
-            <a href="/tarjetas" class="navbar-link">tarjetas</a>
-        </div>
-        <div class="navbar-title">BCIB</div>
-        <div class="navbar-right">
-            <a href="/login" class="navbar-link">logIn</a>
-            <a href="/registro" class="navbar-link">hacete cliente</a>
-        </div>
-    </nav>
+    
+    {% include './navbar.html' %}
+    <!-- Corregir aquí: abrir la etiqueta <header> -->
+    <header>
+        <main>
+            <h2>Bienvenidos al Banco Capital ITBA</h2>
+            <img src="../../static/home/1.webp" alt="Imagen del Banco">
+            <p>Página principal para el Banco Capital ITBA</p>
+        </main>
         
     </header>
-    <main>
-        <h2>Bienvenidos al Banco Capital ITBA</h2>
-        <img src="../../static/home/1.webp" alt="Imagen del Banco">
-        <p>Pagina principal para el Banco Capital ITBA</p>
-    </main>
     <footer>
+        <!-- Contenido del pie de página -->
     </footer>
 </body>
 </html>
