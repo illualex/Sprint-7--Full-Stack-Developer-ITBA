@@ -8,7 +8,6 @@ from django.dispatch import receiver
 
 
 class Cliente(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     customer_name = models.TextField()
     customer_surname = models.TextField() 
@@ -34,7 +33,7 @@ class Cliente(models.Model):
         instance.cliente.save()    
         
     def __str__(self):
-        return f"{self.user}'s Profile"
+        return self.customer_name
     class Meta:
         managed = False
         db_table = 'cliente'
