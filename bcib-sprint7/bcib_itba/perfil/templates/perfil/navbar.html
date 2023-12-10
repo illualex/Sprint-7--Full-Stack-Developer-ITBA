@@ -7,6 +7,10 @@
     </div>
     <div class="navbar-title">BCIB</div>
     <div class="navbar-right">
-        <a href="/" class="navbar-link">LogOut</a>
+        {% if user.is_authenticated %}
+            Bienvenido, {{ user.cliente.nombre }}
+            <a href="{% url 'logout' %}">Cerrar sesión</a>
+        {% endif %}
+
     </div>
 </nav>
