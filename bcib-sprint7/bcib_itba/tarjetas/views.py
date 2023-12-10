@@ -8,6 +8,7 @@ def tarjetas_view(request):
         cliente = Cliente.objects.get(user=request.user)
     return render(request, 'tarjetas/tarjetas.html')
 
+# codigo de prueba a implementar
 # from django.shortcuts import render
 # from .models import Tarjeta  # Reemplaza 'Tarjeta' con el nombre de tu modelo
 
