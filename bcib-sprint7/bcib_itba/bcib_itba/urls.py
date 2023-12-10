@@ -8,12 +8,13 @@ from tarjetas.views import tarjetas_view
 from personal_data.views import data_view
 from register.views import register_view
 from django.contrib.auth import views as auth_views
-
+from logout.views import logout_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('prestamos/', prestamos_view),
     path("", home_view),
-    path("login/", login_view),
+    path('logout/', logout_view, name='logout'),
+    path("login/", login_view, name="login"),
     path("perfil/", perfil_view),
     path("tarjetas/", tarjetas_view),
     path("personal_data/", data_view),

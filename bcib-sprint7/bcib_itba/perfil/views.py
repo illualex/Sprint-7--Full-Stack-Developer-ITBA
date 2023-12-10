@@ -1,11 +1,9 @@
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from cliente.models import Cliente
+from django.shortcuts import render
 
 
-@login_required
-# Create your views here.
+@login_required(login_url='bcib-sprint7\bcib_itba\login\templates\login\login.html')
 def perfil_view(request):
-    if request.user.is_authenticated:
-        cliente = Cliente.objects.get(user=request.user)
+    print(f"¿El usuario está autenticado? {request.user.is_authenticated}")
     return render(request, 'perfil/perfil.html')
+
