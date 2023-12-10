@@ -8,6 +8,7 @@ from django.dispatch import receiver
 
 
 class Cliente(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     customer_name = models.TextField()
     customer_surname = models.TextField() 
@@ -21,19 +22,10 @@ class Cliente(models.Model):
     #         cuenta = Cuenta.objects.get(customer_id=self.customer_id)
     #         return cuenta
     #     except Cuenta.DoesNotExist:
-    #         return None
-        
-    @receiver(post_save, sender=User)
-    def create_cliente(sender, instance, created, **kwargs):
-        if created:
-            Cliente.objects.create(user=instance)
-
-    @receiver(post_save, sender=User)
-    def save_cliente(sender, instance, **kwargs):
-        instance.cliente.save()    
+    
         
     def __str__(self):
-        return self.customer_name
+        return f"{self.user}'s Profile"
     class Meta:
         managed = False
         db_table = 'cliente'

@@ -1,7 +1,7 @@
 <!-- templates/index.html -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,10 +22,14 @@
             <input type="text" name="username" required>
             <input type="password" name="password" required>
             <button type="submit">Iniciar Sesión</button>
-        </form>        
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
     </main>
     <footer>
     </footer>
-
 </body>
 </html>
