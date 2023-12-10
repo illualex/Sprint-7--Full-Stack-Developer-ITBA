@@ -9,7 +9,7 @@
     <div class="navbar-right">
         {% if user.is_authenticated %}
             Bienvenido, {{ user.cliente.nombre }}
-            <a href="{% url 'logout' %}">Cerrar sesión</a>
+            <a href="/logout">Cerrar sesión</a>
         {% endif %}
 
     </div>
