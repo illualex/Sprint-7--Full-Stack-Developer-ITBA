@@ -25,6 +25,9 @@
                 <a href="/prestamos" class="navbar-link">prestamos</a>
                 <a href="/tarjetas" class="navbar-link">tarjetas</a>
                 <a href="/personal_data" class="navbar-link">datos personales</a>
+                {% if user.is_authenticated %}
+                    Bienvenido, {{ user.cliente.nombre }}
+                {% endif %}
             </div>
             <div class="navbar-title">BCIB</div>
             <div class="navbar-right">

@@ -23,14 +23,15 @@ from perfil.views import perfil_view
 from tarjetas.views import tarjetas_view
 from personal_data.views import data_view
 from register.views import register_view
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prestamos/', prestamos_view ),  
+    path('prestamos/', prestamos_view, include('django.contrib.auth.urls') ),  
     path("", home_view),
     path("login/", login_view),
-    path("perfil/", perfil_view),
-    path("tarjetas/", tarjetas_view),
-    path("personal_data/", data_view),
+    path("perfil/", perfil_view,include('django.contrib.auth.urls')),
+    path("tarjetas/", tarjetas_view,include('django.contrib.auth.urls')),
+    path("personal_data/", data_view,include('django.contrib.auth.urls')),
     path("registro/", register_view),
 ]

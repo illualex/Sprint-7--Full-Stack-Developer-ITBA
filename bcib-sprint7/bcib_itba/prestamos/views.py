@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render
 from .forms import SolicitudPrestamoForm
 from cliente.models import  Cliente
 from .models import SolicitudPrestamo, Prestamo
@@ -6,11 +6,15 @@ from django.contrib.auth.decorators import login_required
 from random import randint
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
+from cliente.models import Cliente
 
 
 @login_required
 @csrf_protect
 def prestamos_view(request):
+    if request.user.is_authenticated:
+        cliente = Cliente.objects.get(user=request.user)
+        
     cliente_id_aleatorio = randint(1, 505)
     try:
         usuario = User.objects.get(id=cliente_id_aleatorio)
