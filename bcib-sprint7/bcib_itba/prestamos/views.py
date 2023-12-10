@@ -1,43 +1,44 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import SolicitudPrestamoForm
-from cliente.models import  Cliente
-from .models import SolicitudPrestamo, Prestamo
+from cliente.models import Cliente
+from .models import SolicitudPrestamo
 from django.contrib.auth.decorators import login_required
 from random import randint
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_protect
-from cliente.models import Cliente
+# from home.views import home_view
+from django.urls import reverse
 
 
 @login_required
 @csrf_protect
 def prestamos_view(request):
-    if request.user.is_authenticated:
-        cliente = Cliente.objects.get(user=request.user)
-        
+    try:
+        if request.user.is_authenticated:
+            cliente = Cliente.objects.get(user=request.user)
+    except Cliente.DoesNotExist:
+          return redirect(reverse('login'))
+
+
     cliente_id_aleatorio = randint(1, 505)
     try:
         usuario = User.objects.get(id=cliente_id_aleatorio)
-        cliente = Cliente.objects.get(user=usuario)
+        cliente_aleatorio = Cliente.objects.get(user=usuario)
     except Cliente.DoesNotExist:
-        cliente = Cliente.objects.get(user=2)
-        # Leslie
+        cliente_aleatorio = Cliente.objects.get(user=2)  
+
     if request.method == 'POST':
-        # form = SolicitudPrestamoForm(request.POST,initial={'cliente': cliente_id_aleatorio})
         form = SolicitudPrestamoForm(request.POST)
         if form.is_valid():
             solicitud = form.save(commit=False)
-            solicitud.cliente = cliente
-            solicitud.aprobado = True  
+            solicitud.cliente = cliente if cliente else cliente_aleatorio
+            solicitud.aprobado = True 
             solicitud.save()
 
-            # Actualizar el préstamo y el saldo de cuenta 
-
-            
-            if solicitud.aprobado==True:
+            if solicitud.aprobado == True:
                 mensaje = "Solicitud de préstamo aprobada"
                 aprobado = True
-                # aca hay quue actualizar el monto de saldo en cuenta
+                # Actualizar el monto de saldo en cuenta 
             else:
                 mensaje = "Solicitud de préstamo rechazada"
                 aprobado = False

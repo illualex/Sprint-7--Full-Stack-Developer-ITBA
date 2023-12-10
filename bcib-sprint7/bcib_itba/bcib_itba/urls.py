@@ -36,6 +36,5 @@ urlpatterns = [
     path("tarjetas/", tarjetas_view),
     path("personal_data/", data_view),
     path("registro/", register_view),
-    path('accounts/', include('django.contrib.auth.urls')),  # Mueve esta línea fuera de la función path
     path("", home_view),
 ]
