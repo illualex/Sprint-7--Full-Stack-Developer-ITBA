@@ -1,0 +1,123 @@
+header {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: gray;
+}
+
+main {
+    text-align: center;
+    margin: 20px;
+}
+
+/* Estilos generales */
+nav {
+    position: relative;
+  }
+  
+  #menuToggle {
+    display: block;
+    position: relative;
+    padding: 0 30px;
+    z-index: 1;
+    user-select: none;
+  }
+  
+  #menuToggle input {
+    display: none;
+  }
+  
+  #menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+                background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+                opacity 0.55s ease;
+  }
+  
+  :root {
+    --negro: #00100B;
+    --rojo: #C42021;
+    --gris: #7C8483;
+    --blanco: #F0F3F5;
+
+    --title: 'Oswald', sans-serif;
+    --text: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: var(--text);
+}
+
+nav {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-title {
+    font-family: var(--title);
+    font-size: 24px;
+}
+
+.navbar-link {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar-button {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Media Query para hacer responsive el navbar */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-left,
+    .navbar-right {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

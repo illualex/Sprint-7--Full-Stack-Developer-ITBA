@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solicitud de Préstamo</title>
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'prestamos/styles.css' %}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+   
+</head>
+<body>
+    {% include "./navbar.html" %}    
+    <div class="container">
+        <h1>Estado de la Solicitud de Préstamo</h1>
+        {% if aprobado %}
+            <h3>Su solicitud ha sido aprobada.</h3>
+        {% else %}
+            <h3>Su solicitud ha sido rechazada.</h3>
+        {% endif %}
+        <div class="botones">
+            <button onclick="window.location.href='/perfil'" class="btn btn-primary">Ir a mi perfil</button>
+            <button onclick="window.location.href='/prestamos'" class="btn btn-primary">Volver a intentar</button>
+        </div>
+    </div>
+</body>
+</html>

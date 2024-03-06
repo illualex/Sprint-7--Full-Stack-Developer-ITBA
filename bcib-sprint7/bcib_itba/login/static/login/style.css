@@ -1,0 +1,37 @@
+header {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.iniciar{
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+    border-radius: 11px;
+    background-color: #bbbbbb;
+}
+
+.iniciar:hover{
+    background-color: #aaaaaaaa;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: gray;
+}
+
+main {
+    text-align: center;
+    margin: 20px;
+}
